@@ -1,14 +1,32 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
+
 import App from './App';
+import Login from './Login';
+import Head from './Components/Head';
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <App />
+	},
+	{
+		path: '/login',
+		element: <Login />
+	}
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  <html>
+  <Head />
+  <body className="bg-black">
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
+  </body>
+  </html>
 );

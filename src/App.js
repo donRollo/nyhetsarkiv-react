@@ -4,15 +4,14 @@ import Head from './Components/Head';
 import Header from './Components/Header';
 import Nyheter from './Components/Nyheter';
 import Footer from './Components/Footer';
-import Login from './Login';
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="Login" element={<Login />} />
-        </Route>
-      </Routes>
+      <div>
+      <Header />
+      <Nyheter />
+      <Footer />
+      </div>
   );
 }
 
