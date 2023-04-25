@@ -1,21 +1,27 @@
 import React from 'react'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
-var userSessionStorage = sessionStorage.getItem("userData");
-var hasUserData = false;
-if (userSessionStorage && userSessionStorage.length > 3) {
-    hasUserData = true;
-}
+class Header extends React.Component {
+  
+  handleClick() {
+    this.forceUpdate();
+  }
+  
+  render() {
 
-var myUrlSlug  = location.pathname.split('/').slice(1);
-var isLoginPage = false;
-if (myUrlSlug == "Login") {
-  isLoginPage = true;
-}
+  var userSessionStorage = sessionStorage.getItem("userData");
+  var hasUserData = false;
+  if (userSessionStorage && userSessionStorage.length > 3) {
+      hasUserData = true;
+  }
 
-function Header(rand) {  
-  return (
-        <div className="container mx-auto pt-8">  
+  var myUrlSlug  = location.pathname.split('/').slice(1);
+  var isLoginPage = false;
+  if (myUrlSlug == "Login") {
+    isLoginPage = true;
+  }
+
+  return <div className="container mx-auto pt-8">  
           <div className="pl-8 pr-12">
             <div className="flex mb-4">
               <div className="w-11/12">
@@ -27,22 +33,23 @@ function Header(rand) {
                 {
                   hasUserData ? 
                     <span className="center text-white test-sm">
-                      <Link to="/Logout" onClick={() => reloadComponent()}>[ LOGGA UT ]</Link>
+                      <Link to="/Logout" onClick={this.handleClick.bind(this)}>[ LOGGA UT ]</Link>
                     </span> 
                   : isLoginPage ? 
                     <span className="center text-white test-sm">
-                      <Link to="/" onClick={() => reloadComponent()}>[ AVBRYT ]</Link>
+                      <Link to="/" onClick={this.handleClick.bind(this)}>[ AVBRYT ]</Link>
                     </span> 
                   : 
                     <span className="center text-white test-sm">
-                      <Link to="/Login" onClick={() => reloadComponent()}>[ LOGGA IN ]</Link>
+                      <Link to="/Login" onClick={this.handleClick.bind(this)}>[ LOGGA IN ]</Link>
                     </span> 
                 }
               </div>
             </div>
           </div>
-       </div>
-  )
+        </div>
+
+  }
 }
 
 export default Header;

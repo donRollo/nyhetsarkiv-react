@@ -8,7 +8,7 @@ import Footer from './Components/Footer';
 function App() {
   return (
     <div>
-        <Header random={Math.random()} />
+        <Header />
         <Nyheter />
         <Footer />
     </div>
