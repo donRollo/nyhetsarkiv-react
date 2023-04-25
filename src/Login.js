@@ -5,9 +5,9 @@ import Footer from './Components/Footer';
 function Login() {
   return (
     <div>
-    <Header />
-    <div>Login</div>
-    <Footer />
+    	<Header random={Math.random()} />
+    	<div>Login</div>
+    	<Footer />
     </div>
   )
 }

@@ -7,24 +7,11 @@ import Footer from './Components/Footer';
 
 function App() {
   return (
-      <div>
-      <Header />
-      <Nyheter />
-      <Footer />
-      </div>
-  );
-}
-
-function Layout() {
-  return (
-    <html>
-    <Head />
-      <body className="bg-black">
-        <Header />
+    <div>
+        <Header random={Math.random()} />
         <Nyheter />
         <Footer />
-      </body>
-    </html>
+    </div>
   );
 }
 
