@@ -9,6 +9,12 @@ if (!userSessionStorage || userSessionStorage.length < 3) {
     hasUserData = 1;
 }
 
+const myUrlSlug  = location.pathname.split('/').slice(1);
+var isOnLoginPage = false;
+if (myUrlSlug == "Login") {
+  isOnLoginPage = true;
+}
+
 function Header() {
   return (
         <div className="container mx-auto pt-8">  
@@ -20,22 +26,20 @@ function Header() {
                 </span>
               </div>
               <div className="w-1/12">
-                  {(() => {
-                    if (hasUserData) {
-                      return (
-                        <span className="center text-white test-sm">
-                          [ LOGGA UT ]
-                        </span>
-                      )
-                    } else {
-                      return (
-                        <span className="center text-white test-sm">
-                          <Link to="/Login">[ LOGGA IN ]</Link>
-                        </span>
-                      )
-                      }
-                    }
-                  )()}
+                {
+                  hasUserData ? 
+                    <span className="center text-white test-sm">
+                      <Link to="/Logout">[ LOGGA UT ]</Link>
+                    </span> 
+                    : isOnLoginPage ? 
+                    <span className="center text-white test-sm">
+                      <Link to="/">[ AVBRYT ]</Link>
+                    </span> 
+                    : 
+                    <span className="center text-white test-sm">
+                      <Link to="/Login">[ LOGGA IN ]</Link>
+                    </span> 
+                }
               </div>
             </div>
           </div>
