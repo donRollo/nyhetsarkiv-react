@@ -7,7 +7,7 @@
 	$myDbName = "";
 
 	// Hämta alla env
-	$myEnv = file_get_contents("../../.env");
+	$myEnv = file_get_contents("../.env");
 	
 	// Skapa array baserat på radbryt
 	$arrEnv = explode(PHP_EOL, $myEnv);

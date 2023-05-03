@@ -5,6 +5,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 function Header() {
   
   var userSessionStorage = sessionStorage.getItem("userData");
+
   var hasUserData = false;
   if (userSessionStorage && userSessionStorage.length > 3) {
       hasUserData = true;
